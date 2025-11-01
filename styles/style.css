@@ -1,0 +1,52 @@
+/* Add your styles here */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: .5rem;
+    text-align: center;
+    z-index: 1000; 
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.headerButton {
+    background-color: #333;
+    color: white; /* White text */
+    padding: .25rem; /* Padding around text */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    font-size: 16px; /* Font size */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline from text */
+    display: inline-block; /* Allow side-by-side placement */
+} 
+
+.headerButton:hover {
+    background-color: #202020;
+}
+
+.headerButton:active {
+  background-color: #000000;
+  transform: translateY(1px); /* Slight downward shift for pressed effect */
+}
+
+.headerSpacerDiv {
+    height: .75rem;
+    margin-bottom: 2rem;
+}
+
+a {
+  color: blue; /* Or any other link color */
+  text-decoration: underline;
+  cursor: pointer;
+}
