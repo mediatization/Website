@@ -1,4 +1,84 @@
-/* Add your styles here */
+/* Typography & readable layout enhancements */
+
+/* Variables */
+:root{
+  --bg: #ffffff;
+  --text: #22222a;
+  --muted: #6b6f76;
+  --max-width: 70ch; /* optimal measure for text lines */
+  --base-font-size: 16px;
+  --heading-font: 'Merriweather', serif;
+  --body-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Base */
+html { font-family: var(--body-font); font-size: var(--base-font-size); box-sizing: border-box; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+}
+
+/* Page container for readable measure */
+main {
+  padding: 3.5rem 1rem 3rem; /* leave space for fixed header */
+  display: block;
+}
+
+/* Responsive type scale using clamp() */
+h1, h2, h3, h4 {
+  font-family: var(--heading-font);
+  color: var(--text);
+  margin: 0 0 0.6rem 0;
+  line-height: 1.15;
+}
+
+h1 { font-size: clamp(1.6rem, 2.2vw + 1rem, 3rem); letter-spacing: -0.02em; font-weight:700; }
+h2 { font-size: clamp(1.3rem, 1.6vw + 0.9rem, 2rem); font-weight:700; }
+h3 { font-size: clamp(1.05rem, 1.1vw + 0.8rem, 1.25rem); font-weight:600; }
+
+p {
+  margin: 0 0 1rem 0;
+  font-size: clamp(0.95rem, 0.45vw + 0.9rem, 1.05rem);
+  color: var(--text);
+}
+
+/* Lead paragraph for hero/intros */
+.lead {
+  font-size: clamp(1.05rem, 0.9vw + 1rem, 1.15rem);
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+/* Links */
+a {
+  color: blue;
+}
+
+/* Lists */
+ul, ol { margin: 0 0 1rem 1.25rem; color: var(--text); }
+
+/* Blockquote */
+blockquote {
+  margin: 0 0 1rem 0;
+  padding: 0.75rem 1rem;
+  background: rgba(0,0,0,0.03);
+  border-left: 4px solid rgba(0,0,0,0.08);
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Small / muted text */
+.muted { color: var(--muted); font-size: 0.95rem; }
+
+/* Utility helpers */
+.kicker { text-transform: uppercase; font-size: .75rem; letter-spacing: .15em; color: var(--muted); }
+.center { text-align: center; }
+.note { font-size: .95rem; color: var(--muted); }
 
 .header {
     position: fixed;
@@ -6,9 +86,7 @@
     left: 0;
     width: 100%;
     background-color: #333;
-    color: white;
     padding: .5rem;
-    text-align: center;
     z-index: 1000; 
 
     display: flex;
@@ -20,15 +98,15 @@
 
 .headerButton {
     background-color: #333;
-    color: white; /* White text */
-    padding: .25rem; /* Padding around text */
-    border: none; /* No border */
-    border-radius: 8px; /* Rounded corners */
+    color: white; 
+    padding: .25rem; 
+    border: none; 
+    border-radius: 8px; 
     cursor: pointer; /* Change cursor on hover */
-    font-size: 16px; /* Font size */
-    text-align: center; /* Center text */
+    font-family: var(--heading-font);
+    font-size: 16px; 
+    text-align: center; 
     text-decoration: none; /* Remove underline from text */
-    display: inline-block; /* Allow side-by-side placement */
 } 
 
 .headerButton:hover {
@@ -37,16 +115,11 @@
 
 .headerButton:active {
   background-color: #000000;
-  transform: translateY(1px); /* Slight downward shift for pressed effect */
-}
+  transform: translateY(1px); 
+} 
 
-.headerSpacerDiv {
-    height: .75rem;
-    margin-bottom: 2rem;
-}
-
-a {
-  color: blue; /* Or any other link color */
-  text-decoration: underline;
-  cursor: pointer;
+/* Small screens: tighten spacing */
+@media (max-width:600px){
+  :root { --max-width: 46ch; }
+  .header { padding: .5rem; }
 }
