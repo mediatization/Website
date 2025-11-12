@@ -7,9 +7,92 @@
   --muted: #6b6f76;
   --max-width: 70ch; /* optimal measure for text lines */
   --base-font-size: 16px;
-  --heading-font: 'Merriweather', serif;
-  --body-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --heading-font: 'RPI-Geist', sans-serif;
+  --body-font: 'RPI-Geist-Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Segoe UI Mono', monospace;
+  /* Typography tuning */
+  --body-line-height: 1.6;
+  --heading-line-height: 1.15;
+  --lead-size: 1.125rem;
+  --kicker-size: 0.75rem;
+  --h1-scale: clamp(1.6rem, 2.2vw + 1rem, 3rem);
+  --h2-scale: clamp(1.3rem, 1.6vw + 0.9rem, 2rem);
+  --h3-scale: clamp(1.05rem, 1.1vw + 0.8rem, 1.25rem);
 }
+/* RPI Geist fonts - map weights to the specific files you added in /fonts/ */
+@font-face {
+  font-family: 'RPI-Geist';
+  src: url('../fonts/RPIGeist-Regular.woff2') format('woff2'),
+       url('../fonts/RPIGeist-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'RPI-Geist';
+  src: url('../fonts/RPIGeist-Medium.woff2') format('woff2'),
+       url('../fonts/RPIGeist-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'RPI-Geist';
+  src: url('../fonts/RPIGeist-Bold.woff2') format('woff2'),
+       url('../fonts/RPIGeist-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Italic variants (if present) */
+@font-face {
+  font-family: 'RPI-Geist';
+  src: url('../fonts/RPIGeist-RegularItalic.woff2') format('woff2'),
+       url('../fonts/RPIGeist-RegularItalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* RPI Geist Mono - map weights/styles to files in /fonts/ */
+@font-face {
+  font-family: 'RPI-Geist-Mono';
+  src: url('../fonts/RPIGeistMono-Regular.woff2') format('woff2'),
+       url('../fonts/RPIGeistMono-Regular.woff') format('woff'),
+       url('../fonts/RPIGeistMono-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'RPI-Geist-Mono';
+  src: url('../fonts/RPIGeistMono-Medium.woff2') format('woff2'),
+       url('../fonts/RPIGeistMono-Medium.woff') format('woff'),
+       url('../fonts/RPIGeistMono-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'RPI-Geist-Mono';
+  src: url('../fonts/RPIGeistMono-Bold.woff2') format('woff2'),
+       url('../fonts/RPIGeistMono-Bold.woff') format('woff'),
+       url('../fonts/RPIGeistMono-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'RPI-Geist-Mono';
+  src: url('../fonts/RPIGeistMono-Italic.woff2') format('woff2'),
+       url('../fonts/RPIGeistMono-Italic.woff') format('woff'),
+       url('../fonts/RPIGeistMono-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Ensure headings use proportional Geist and body uses Geist Mono */
 
 /* Base */
 html { font-family: var(--body-font); font-size: var(--base-font-size); box-sizing: border-box; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
@@ -18,9 +101,11 @@ body {
   margin: 0;
   color: var(--text);
   background: var(--bg);
-  line-height: 1.6;
+  line-height: var(--body-line-height);
   font-variant-ligatures: none;
   -webkit-font-variant-ligatures: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Page container for readable measure */
@@ -47,33 +132,19 @@ p {
   color: var(--text);
 }
 
+a {
+  color: blue;
+}
+
+/* Small / muted text */
+.muted { color: var(--muted); font-size: 0.95rem; }
+
 /* Lead paragraph for hero/intros */
 .lead {
   font-size: clamp(1.05rem, 0.9vw + 1rem, 1.15rem);
   color: var(--muted);
   margin-bottom: 1.25rem;
 }
-
-/* Links */
-a {
-  color: blue;
-}
-
-/* Lists */
-ul, ol { margin: 0 0 1rem 1.25rem; color: var(--text); }
-
-/* Blockquote */
-blockquote {
-  margin: 0 0 1rem 0;
-  padding: 0.75rem 1rem;
-  background: rgba(0,0,0,0.03);
-  border-left: 4px solid rgba(0,0,0,0.08);
-  color: var(--muted);
-  font-style: italic;
-}
-
-/* Small / muted text */
-.muted { color: var(--muted); font-size: 0.95rem; }
 
 /* Utility helpers */
 .kicker { text-transform: uppercase; font-size: .75rem; letter-spacing: .15em; color: var(--muted); }
@@ -123,7 +194,6 @@ blockquote {
   display: inline-block;
 }
 
-/* Dropdown content centered under the parent button */
 .dropdownContent {
   display: none;
   position: absolute;
