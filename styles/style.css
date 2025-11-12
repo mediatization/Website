@@ -80,7 +80,7 @@ blockquote {
 .center { text-align: center; }
 .note { font-size: .95rem; color: var(--muted); }
 
-.header {
+#header {
     position: fixed;
     top: 0;
     left: 0;
@@ -123,18 +123,26 @@ blockquote {
   display: inline-block;
 }
 
+/* Dropdown content centered under the parent button */
 .dropdownContent {
   display: none;
   position: absolute;
+  flex-direction: column; gap: 0.25rem;
+  left: -40%;
   background-color: #333;
+  padding: 0.35rem;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  z-index: 1100;
+  min-width: max-content;
 }
 
 .dropdown:hover .dropdownContent {
-  display: block;
+  display: flex;
 }
 
 /* Small screens: tighten spacing */
 @media (max-width:600px){
   :root { --max-width: 46ch; }
-  .header { padding: .5rem; }
+  #header { padding: .5rem; }
 }
