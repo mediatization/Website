@@ -118,6 +118,21 @@ blockquote {
   transform: translateY(1px); 
 } 
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #333;
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
 /* Small screens: tighten spacing */
 @media (max-width:600px){
   :root { --max-width: 46ch; }

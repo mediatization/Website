@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pages = {
         'Home': 'index.html',
         'Our Team': 'our-team.html',
-        'Publications': 'publications.html',
+        'Our Work': 'our-work.html',
         'Resources': 'resources.html'
     };
 
